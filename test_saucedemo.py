@@ -68,14 +68,14 @@ def test_catalogo(driver):
 
 
     filtro = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.CLASS_NAME, 'producto_sort_container'))
+        EC.visibility_of_element_located((By.CLASS_NAME, 'product_sort_container'))
     )
 
     #testeamos que el filtro de orden de productos sea visible
     assert filtro.is_displayed()
 
     menu_hamburguesa = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.ID, 'react_burger_menu_btn'))
+        EC.visibility_of_element_located((By.ID, 'react-burger-menu-btn'))
     )
 
     #testeamos que el menu hamburguesa sea visible
