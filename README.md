@@ -44,6 +44,9 @@ Para ejecutar todas las pruebas, abrir la terminal y ejecutar el siguiente coman
 
 pytest tests
 
+## Ejecución de las Pruebas viendo los logs:
+
+pytest -s tests
 
 ### Generar Reporte HTML
 
