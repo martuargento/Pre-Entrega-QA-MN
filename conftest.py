@@ -2,22 +2,24 @@ import pytest
 import os
 from utils.helpers import get_driver
 
-@pytest.fixture(scope="function")
+
+#este fixture es el que va a usar cada test para tener un navegador chrome abierto y 
+#controlado por selenium webdriver:
+@pytest.fixture(scope="function") 
 def driver():
-    driver = get_driver()
+    driver = get_driver()  #utilizamos get_driver() que es donde se produce el chrome abierto y controlado por selenium
     yield driver
     driver.quit()
 
+# creamos un hook para detectar fallos guardar los screenshoots
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    # ejecutar todos los otros hooks para obtener el objeto de reporte
-    outcome = yield
-    rep = outcome.get_result()
+    outcome = yield #ejecutamos el test y esperamos el resultado del mismo
+    reporte = outcome.get_result() #obtenemos si paso o no, y lo guardamos en la variable reporte
 
-    # solo miramos las llamadas de pruebas que fallan realmente, no setup/teardown
-    if rep.when == "call" and rep.failed:
-        # obtenemos el driver del elemento de la prueba
-        driver = item.funcargs.get('driver')
+
+    if reporte.when == "call" and reporte.failed:     # si fue un fallo real de test
+        driver = item.funcargs.get('driver') # conseguimos el navegador del test que fallo, y lo guardamos
         if driver:
             # creamos la carpeta de screenshots si no existe
             screenshots_dir = "screenshots"
