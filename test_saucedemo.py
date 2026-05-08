@@ -16,6 +16,9 @@ def driver():
     yield driver
     driver.quit()
 
+
+
+
 # 1) AUTOMATIZACION DE LOGIN
 def test_login_exitoso(driver):
     login_saucedemo(driver)
@@ -40,6 +43,8 @@ def test_login_exitoso(driver):
 
     #► testeamos que sea 'Products'
     assert titulo_products == 'Products'
+
+
 
 
 # 2) NAVEGACION Y VERIFICACION DEL CATALOGO DE PRODUCTOS
@@ -80,6 +85,8 @@ def test_catalogo(driver):
 
     #testeamos que el menu hamburguesa sea visible
     assert menu_hamburguesa.is_displayed()
+
+
 
 
 
