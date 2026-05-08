@@ -14,7 +14,7 @@ URL = "https://www.saucedemo.com/"
 USERNAME = "standard_user"
 PASSWORD = "secret_sauce"
 
-
+# funcion para tener el navegador controlado por selenium
 def get_driver():
     logger.info("Inicializando el driver de Chrome")
     service = Service(ChromeDriverManager().install())
@@ -22,7 +22,7 @@ def get_driver():
     logger.info("Driver de Chrome inicializado exitosamente")
     return driver
 
-
+# funcion para hacer el login en la pagina de saucedemo
 def login_saucedemo(driver):
     logger.info("Iniciando proceso de login en la web Saucedemo")
     driver.get(URL)

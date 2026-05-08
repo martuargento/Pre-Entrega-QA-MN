@@ -7,7 +7,7 @@ from utils.helpers import get_driver
 #controlado por selenium webdriver:
 @pytest.fixture(scope="function") 
 def driver():
-    driver = get_driver()  #utilizamos get_driver() que es donde se produce el chrome abierto y controlado por selenium
+    driver = get_driver()  #utilizamos get_driver() que es donde se produce el chrome abierto y controlado por selenium, definida en el helpers.py
     yield driver
     driver.quit()
 

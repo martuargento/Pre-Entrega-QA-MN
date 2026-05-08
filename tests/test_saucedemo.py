@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 # 1) AUTOMATIZACION DE LOGIN
 def test_login_exitoso(driver):
     logger.info("Iniciando prueba de login exitoso")
-    login_saucedemo(driver)
+    login_saucedemo(driver) #usamos la funcion para loguearnos hecha en el helpers.py
 
     #► testeamos que la url actual sea "/inventory.html", indicando que fue exitoso el login
     assert "/inventory.html" in driver.current_url
